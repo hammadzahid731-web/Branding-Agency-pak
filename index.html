@@ -1,0 +1,994 @@
+﻿﻿<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Branding Agency | Professional Brand Identity & Creative Strategy</title>
+    <meta name="description" content="Strategic branding, professional logo design, visual identity systems, packaging design, and creative direction for high-end businesses.">
+    <meta name="keywords" content="Branding Agency, Logo Design, Brand Identity, Visual Identity, Brand Strategy, Packaging Design, Business Stationery, Brand Guidelines">
+    
+    <!-- Open Graph Metadata -->
+    <meta property="og:title" content="Branding Agency | Professional Brand Identity & Creative Strategy">
+    <meta property="og:description" content="Strategic branding and creative identity solutions designed to give businesses a distinctive and professional presence.">
+    <meta property="og:type" content="website">
+    
+    <!-- Tailwind CSS CDN for high-end styling & utility -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0a0a0a',
+                            card: '#141414',
+                            border: '#262626',
+                            accent: '#d4af37', /* Sophisticated luxury gold/champagne accent */
+                            accentHover: '#e5c158',
+                            muted: '#888888',
+                            light: '#f5f5f7'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        serif: ['Playfair Display', 'Georgia', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Custom smooth scrollbar & selection */
+        ::selection {
+            background: #d4af37;
+            color: #0a0a0a;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #262626;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d4af37;
+        }
+
+        /* Subtle grid background pattern */
+        .bg-grid-pattern {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+
+        /* Glassmorphism */
+        .glass-nav {
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .glass-card {
+            background: rgba(20, 20, 20, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(212, 175, 55, 0.4);
+        }
+
+        /* Reveal animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-brand-light font-sans antialiased selection:bg-brand-accent selection:text-brand-dark overflow-x-hidden">
+
+    <!-- Sticky Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-brand-border transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#home" class="group flex items-center space-x-2">
+                <span class="text-xl font-bold tracking-tight text-white group-hover:text-brand-accent transition-colors font-serif">
+                    Branding Agency
+                </span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-300">
+                <a href="#home" class="hover:text-brand-accent transition-colors">Home</a>
+                <a href="#services" class="hover:text-brand-accent transition-colors">Services</a>
+                <a href="#identity" class="hover:text-brand-accent transition-colors">About</a>
+                <a href="#process" class="hover:text-brand-accent transition-colors">Process</a>
+                <a href="#work" class="hover:text-brand-accent transition-colors">Work</a>
+                <a href="#contact" class="hover:text-brand-accent transition-colors">Contact</a>
+            </nav>
+
+            <!-- CTA Button -->
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="#contact" class="relative inline-flex items-center justify-center px-6 py-2.5 text-xs font-semibold uppercase tracking-widest text-brand-dark bg-brand-accent hover:bg-brand-accentHover transition-all duration-300 rounded-none overflow-hidden group">
+                    <span class="relative z-10">Start a Project</span>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" aria-label="Toggle Menu" class="md:hidden text-white focus:outline-none p-2">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="fixed inset-x-0 top-20 bg-brand-dark border-b border-brand-border glass-nav transform -translate-y-full opacity-0 pointer-events-none transition-all duration-300 md:hidden flex flex-col px-6 py-6 space-y-4">
+            <a href="#home" class="mobile-link text-lg font-medium text-gray-300 hover:text-brand-accent transition-colors">Home</a>
+            <a href="#services" class="mobile-link text-lg font-medium text-gray-300 hover:text-brand-accent transition-colors">Services</a>
+            <a href="#identity" class="mobile-link text-lg font-medium text-gray-300 hover:text-brand-accent transition-colors">About</a>
+            <a href="#process" class="mobile-link text-lg font-medium text-gray-300 hover:text-brand-accent transition-colors">Process</a>
+            <a href="#work" class="mobile-link text-lg font-medium text-gray-300 hover:text-brand-accent transition-colors">Work</a>
+            <a href="#contact" class="mobile-link text-lg font-medium text-gray-300 hover:text-brand-accent transition-colors">Contact</a>
+            <div class="pt-4 border-t border-brand-border flex flex-col space-y-3">
+                <a href="#contact" class="w-full text-center py-3 text-xs font-semibold uppercase tracking-widest text-brand-dark bg-brand-accent hover:bg-brand-accentHover transition-all duration-300">
+                    Start a Project
+                </a>
+                <a href="https://wa.me/923132487829" target="_blank" rel="noopener noreferrer" class="w-full text-center py-3 text-xs font-semibold uppercase tracking-widest text-white border border-brand-border hover:border-brand-accent transition-all duration-300 flex items-center justify-center space-x-2">
+                    <i data-lucide="message-circle" class="w-4 h-4 text-brand-accent"></i>
+                    <span>WhatsApp Us</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center pt-28 pb-20 bg-grid-pattern overflow-hidden">
+        <!-- Background Ambient Glow -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-accent/5 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-6 w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <!-- Left Text Content -->
+            <div class="lg:col-span-7 space-y-8 reveal">
+                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-brand-border bg-brand-card text-brand-accent text-xs font-medium tracking-wider uppercase">
+                    <span class="w-1.5 h-1.5 rounded-full bg-brand-accent animate-pulse"></span>
+                    <span>Professional Creative Studio</span>
+                </div>
+                
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-serif font-bold tracking-tight text-white leading-[1.1]">
+                    Build a Brand <br>
+                    <span class="italic font-normal text-brand-accent">People Remember</span>
+                </h1>
+
+                <p class="text-lg sm:text-xl text-gray-400 font-light max-w-xl leading-relaxed">
+                    Strategic branding and creative identity solutions designed to give businesses a distinctive and professional presence.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center space-y-4 sm:space-y-0 sm:space-x-4 pt-4">
+                    <a href="#contact" class="inline-flex items-center justify-center px-8 py-4 text-xs font-semibold uppercase tracking-widest text-brand-dark bg-brand-accent hover:bg-brand-accentHover transition-all duration-300 shadow-lg shadow-brand-accent/10">
+                        <span>Start a Project</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                    </a>
+                    <a href="https://wa.me/923132487829" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-8 py-4 text-xs font-semibold uppercase tracking-widest text-white border border-brand-border hover:border-brand-accent bg-brand-card/50 transition-all duration-300 space-x-2">
+                        <i data-lucide="message-circle" class="w-4 h-4 text-brand-accent"></i>
+                        <span>WhatsApp Us</span>
+                    </a>
+                </div>
+
+                <!-- Trust Metrics / Highlights -->
+                <div class="pt-8 border-t border-brand-border grid grid-cols-3 gap-6 text-gray-400 text-sm">
+                    <div>
+                        <span class="block text-white font-serif text-2xl font-bold">100%</span>
+                        <span class="text-xs uppercase tracking-wider text-brand-muted">Custom Strategy</span>
+                    </div>
+                    <div>
+                        <span class="block text-white font-serif text-2xl font-bold">Tailored</span>
+                        <span class="text-xs uppercase tracking-wider text-brand-muted">Visual Systems</span>
+                    </div>
+                    <div>
+                        <span class="block text-white font-serif text-2xl font-bold">End-to-End</span>
+                        <span class="text-xs uppercase tracking-wider text-brand-muted">Brand Execution</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Hero Branding Visual -->
+            <div class="lg:col-span-5 reveal">
+                <div class="relative glass-card p-6 md:p-8 rounded-none border border-brand-border shadow-2xl overflow-hidden group">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-brand-accent/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                    
+                    <!-- Professional Branding Mockup Representation -->
+                    <div class="space-y-6">
+                        <div class="flex items-center justify-between border-b border-brand-border pb-4">
+                            <span class="text-xs uppercase tracking-widest text-brand-accent font-semibold">Brand Identity Board</span>
+                            <span class="text-xs text-brand-muted">System v2.4</span>
+                        </div>
+
+                        <!-- Brand Identity Visual Preview -->
+                        <div class="relative aspect-[4/3] bg-brand-dark border border-brand-border overflow-hidden flex items-center justify-center group-hover:scale-[1.02] transition-transform duration-500">
+                            <!-- High-end Branding Imagery: Brand Identity Presentation & Mockup -->
+                            <img src="https://media.istockphoto.com/id/2212635679/photo/brand-strategy-marketing-identity-chalkboard-analysis-concept.webp?a=1&b=1&s=612x612&w=0&k=20&c=-1g6rJQmzFyV9KleGXyIqRadZo-S3TB-Gc6xTJ4iqFw=" alt="Brand identity presentation and color system mockup" class="w-full h-full object-cover opacity-85 group-hover:opacity-100 transition-opacity">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-transparent flex items-end p-4">
+                                <span class="text-xs font-mono text-gray-300">Typography & Color Architecture</span>
+                            </div>
+                        </div>
+
+                        <!-- Color Palette & Swatches UI -->
+                        <div class="space-y-2">
+                            <div class="text-xs text-brand-muted uppercase tracking-wider">Color System</div>
+                            <div class="grid grid-cols-5 gap-2">
+                                <div class="h-8 bg-[#0a0a0a] border border-brand-border flex items-end justify-center pb-1"><span class="text-[9px] text-gray-500">01</span></div>
+                                <div class="h-8 bg-[#141414] border border-brand-border flex items-end justify-center pb-1"><span class="text-[9px] text-gray-500">02</span></div>
+                                <div class="h-8 bg-[#333333] border border-brand-border flex items-end justify-center pb-1"><span class="text-[9px] text-gray-500">03</span></div>
+                                <div class="h-8 bg-[#f5f5f7] border border-brand-border flex items-end justify-center pb-1"><span class="text-[9px] text-brand-dark font-bold">04</span></div>
+                                <div class="h-8 bg-[#d4af37] border border-brand-border flex items-end justify-center pb-1"><span class="text-[9px] text-brand-dark font-bold">05</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-brand-dark border-t border-brand-border relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="max-w-2xl mx-auto text-center space-y-4 mb-20 reveal">
+                <span class="text-xs uppercase tracking-widest text-brand-accent font-semibold">Expertise</span>
+                <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white tracking-tight">Branding Services</h2>
+                <p class="text-gray-400 font-light">Comprehensive creative solutions tailored to build cohesive, high-impact brand identities.</p>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Service 1: Logo Design -->
+                <div class="glass-card p-8 rounded-none flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300 reveal">
+                    <div>
+                        <div class="w-12 h-12 bg-brand-dark border border-brand-border flex items-center justify-center text-brand-accent mb-6 group-hover:border-brand-accent transition-colors">
+                            <i data-lucide="pen-tool" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-serif font-bold text-white mb-3">Logo Design</h3>
+                        <p class="text-sm text-gray-400 font-light leading-relaxed mb-6">Distinctive, memorable brand marks and custom typography crafted for instant recognition and timeless appeal.</p>
+                    </div>
+                    <div class="pt-4 border-t border-brand-border/55">
+                        <a href="#contact" class="inline-flex items-center text-xs font-semibold uppercase tracking-wider text-brand-accent group-hover:text-white transition-colors">
+                            <span>Inquire Service</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5 ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 2: Brand Identity -->
+                <div class="glass-card p-8 rounded-none flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300 reveal">
+                    <div>
+                        <div class="w-12 h-12 bg-brand-dark border border-brand-border flex items-center justify-center text-brand-accent mb-6 group-hover:border-brand-accent transition-colors">
+                            <i data-lucide="layers" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-serif font-bold text-white mb-3">Brand Identity</h3>
+                        <p class="text-sm text-gray-400 font-light leading-relaxed mb-6">Complete visual eco-systems encompassing color theory, iconography, and multi-platform design rules.</p>
+                    </div>
+                    <div class="pt-4 border-t border-brand-border/55">
+                        <a href="#contact" class="inline-flex items-center text-xs font-semibold uppercase tracking-wider text-brand-accent group-hover:text-white transition-colors">
+                            <span>Inquire Service</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5 ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 3: Brand Strategy -->
+                <div class="glass-card p-8 rounded-none flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300 reveal">
+                    <div>
+                        <div class="w-12 h-12 bg-brand-dark border border-brand-border flex items-center justify-center text-brand-accent mb-6 group-hover:border-brand-accent transition-colors">
+                            <i data-lucide="compass" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-serif font-bold text-white mb-3">Brand Strategy</h3>
+                        <p class="text-sm text-gray-400 font-light leading-relaxed mb-6">Positioning frameworks, audience mapping, and core messaging architecture that defines your market differentiation.</p>
+                    </div>
+                    <div class="pt-4 border-t border-brand-border/55">
+                        <a href="#contact" class="inline-flex items-center text-xs font-semibold uppercase tracking-wider text-brand-accent group-hover:text-white transition-colors">
+                            <span>Inquire Service</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5 ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 4: Visual Identity -->
+                <div class="glass-card p-8 rounded-none flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300 reveal">
+                    <div>
+                        <div class="w-12 h-12 bg-brand-dark border border-brand-border flex items-center justify-center text-brand-accent mb-6 group-hover:border-brand-accent transition-colors">
+                            <i data-lucide="eye" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-serif font-bold text-white mb-3">Visual Identity</h3>
+                        <p class="text-sm text-gray-400 font-light leading-relaxed mb-6">Cohesive aesthetic expressions across digital layouts, UI guidelines, and atmospheric brand imagery.</p>
+                    </div>
+                    <div class="pt-4 border-t border-brand-border/55">
+                        <a href="#contact" class="inline-flex items-center text-xs font-semibold uppercase tracking-wider text-brand-accent group-hover:text-white transition-colors">
+                            <span>Inquire Service</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5 ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 5: Packaging Design -->
+                <div class="glass-card p-8 rounded-none flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300 reveal">
+                    <div>
+                        <div class="w-12 h-12 bg-brand-dark border border-brand-border flex items-center justify-center text-brand-accent mb-6 group-hover:border-brand-accent transition-colors">
+                            <i data-lucide="package" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-serif font-bold text-white mb-3">Packaging Design</h3>
+                        <p class="text-sm text-gray-400 font-light leading-relaxed mb-6">Tactile unboxing experiences, luxury boxes, custom labels, and structural product presentation containers.</p>
+                    </div>
+                    <div class="pt-4 border-t border-brand-border/55">
+                        <a href="#contact" class="inline-flex items-center text-xs font-semibold uppercase tracking-wider text-brand-accent group-hover:text-white transition-colors">
+                            <span>Inquire Service</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5 ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 6: Business Stationery -->
+                <div class="glass-card p-8 rounded-none flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300 reveal">
+                    <div>
+                        <div class="w-12 h-12 bg-brand-dark border border-brand-border flex items-center justify-center text-brand-accent mb-6 group-hover:border-brand-accent transition-colors">
+                            <i data-lucide="file-text" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-serif font-bold text-white mb-3">Business Stationery</h3>
+                        <p class="text-sm text-gray-400 font-light leading-relaxed mb-6">High-end executive business cards, letterheads, presentation folders, and corporate correspondence.</p>
+                    </div>
+                    <div class="pt-4 border-t border-brand-border/55">
+                        <a href="#contact" class="inline-flex items-center text-xs font-semibold uppercase tracking-wider text-brand-accent group-hover:text-white transition-colors">
+                            <span>Inquire Service</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5 ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 7: Marketing Collateral -->
+                <div class="glass-card p-8 rounded-none flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300 reveal">
+                    <div>
+                        <div class="w-12 h-12 bg-brand-dark border border-brand-border flex items-center justify-center text-brand-accent mb-6 group-hover:border-brand-accent transition-colors">
+                            <i data-lucide="layout" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-serif font-bold text-white mb-3">Marketing Collateral</h3>
+                        <p class="text-sm text-gray-400 font-light leading-relaxed mb-6">Polished brochures, campaign flyers, pitch decks, and promotional assets built for high conversion.</p>
+                    </div>
+                    <div class="pt-4 border-t border-brand-border/55">
+                        <a href="#contact" class="inline-flex items-center text-xs font-semibold uppercase tracking-wider text-brand-accent group-hover:text-white transition-colors">
+                            <span>Inquire Service</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5 ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 8: Brand Guidelines -->
+                <div class="glass-card p-8 rounded-none flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300 reveal">
+                    <div>
+                        <div class="w-12 h-12 bg-brand-dark border border-brand-border flex items-center justify-center text-brand-accent mb-6 group-hover:border-brand-accent transition-colors">
+                            <i data-lucide="book-open" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-serif font-bold text-white mb-3">Brand Guidelines</h3>
+                        <p class="text-sm text-gray-400 font-light leading-relaxed mb-6">Comprehensive documentation governing brand usage, typography hierarchies, and visual specifications.</p>
+                    </div>
+                    <div class="pt-4 border-t border-brand-border/55">
+                        <a href="#contact" class="inline-flex items-center text-xs font-semibold uppercase tracking-wider text-brand-accent group-hover:text-white transition-colors">
+                            <span>Inquire Service</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5 ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Identity Section -->
+    <section id="identity" class="py-24 bg-brand-card border-t border-brand-border relative">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            <!-- Left Branding Image: Brand Identity System -->
+            <div class="lg:col-span-6 reveal">
+                <div class="relative border border-brand-border overflow-hidden group">
+                    <img src="https://images.unsplash.com/photo-1614036634955-ae5e90f9b9eb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Q3JlYXRlJTIwYSUyMENvbnNpc3RlbnQlMjBCcmFuZCUyMElkZW50aXR5fGVufDB8fDB8fHww" alt="Brand identity systems, color palettes and stationery mockup" class="w-full h-[450px] object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent opacity-60"></div>
+                    <div class="absolute bottom-6 left-6 right-6">
+                        <span class="text-xs uppercase tracking-widest text-brand-accent font-semibold block mb-1">Cohesion & Architecture</span>
+                        <h4 class="text-xl font-serif font-bold text-white">Unified Brand Expression</h4>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Content -->
+            <div class="lg:col-span-6 space-y-6 reveal">
+                <span class="text-xs uppercase tracking-widest text-brand-accent font-semibold">Visual Consistency</span>
+                <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white tracking-tight">Create a Consistent Brand Identity</h2>
+                <p class="text-gray-300 font-light leading-relaxed">
+                    A strong visual identity brings absolute consistency across every customer touchpoint, establishing trust and market authority. We harmonize your core elements into an unforgettable brand experience.
+                </p>
+
+                <!-- Consistency Pillars -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                    <div class="flex items-start space-x-3 p-4 bg-brand-dark border border-brand-border">
+                        <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-accent shrink-0 mt-0.5"></i>
+                        <div>
+                            <h5 class="text-white font-medium text-sm">Logo & Typography</h5>
+                            <p class="text-xs text-gray-400 mt-1">Precise hierarchy and signature wordmarks.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-3 p-4 bg-brand-dark border border-brand-border">
+                        <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-accent shrink-0 mt-0.5"></i>
+                        <div>
+                            <h5 class="text-white font-medium text-sm">Color Systems</h5>
+                            <p class="text-xs text-gray-400 mt-1">Psychologically resonant palette selection.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-3 p-4 bg-brand-dark border border-brand-border">
+                        <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-accent shrink-0 mt-0.5"></i>
+                        <div>
+                            <h5 class="text-white font-medium text-sm">Stationery & Packaging</h5>
+                            <p class="text-xs text-gray-400 mt-1">Tactile expression of luxury and quality.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-3 p-4 bg-brand-dark border border-brand-border">
+                        <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-accent shrink-0 mt-0.5"></i>
+                        <div>
+                            <h5 class="text-white font-medium text-sm">Marketing Collateral</h5>
+                            <p class="text-xs text-gray-400 mt-1">Seamless digital & print presentation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Strategy Section -->
+    <section id="strategy" class="py-24 bg-brand-dark border-t border-brand-border relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="max-w-2xl mx-auto text-center space-y-4 mb-20 reveal">
+                <span class="text-xs uppercase tracking-widest text-brand-accent font-semibold">Methodology</span>
+                <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white tracking-tight">Strategy Behind Every Strong Brand</h2>
+                <p class="text-gray-400 font-light">We combine rigorous analytical positioning with creative excellence to build brands engineered for longevity.</p>
+            </div>
+
+            <!-- Strategy Flow Graphic -->
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-6 relative reveal">
+                <!-- Step 1 -->
+                <div class="glass-card p-6 border border-brand-border flex flex-col justify-between relative group">
+                    <span class="text-xs font-mono text-brand-accent mb-4 block">01 / DISCOVER</span>
+                    <h3 class="text-lg font-serif font-bold text-white mb-2">Research</h3>
+                    <p class="text-xs text-gray-400 font-light">Auditing market landscape, competitor positioning, and audience psychology.</p>
+                </div>
+                <!-- Step 2 -->
+                <div class="glass-card p-6 border border-brand-border flex flex-col justify-between relative group">
+                    <span class="text-xs font-mono text-brand-accent mb-4 block">02 / DEFINE</span>
+                    <h3 class="text-lg font-serif font-bold text-white mb-2">Positioning</h3>
+                    <p class="text-xs text-gray-400 font-light">Establishing your unique value proposition and brand voice pillars.</p>
+                </div>
+                <!-- Step 3 -->
+                <div class="glass-card p-6 border border-brand-border flex flex-col justify-between relative group">
+                    <span class="text-xs font-mono text-brand-accent mb-4 block">03 / CREATE</span>
+                    <h3 class="text-lg font-serif font-bold text-white mb-2">Identity</h3>
+                    <p class="text-xs text-gray-400 font-light">Translating strategic insights into striking visual design elements.</p>
+                </div>
+                <!-- Step 4 -->
+                <div class="glass-card p-6 border border-brand-border flex flex-col justify-between relative group">
+                    <span class="text-xs font-mono text-brand-accent mb-4 block">04 / ALIGN</span>
+                    <h3 class="text-lg font-serif font-bold text-white mb-2">Consistency</h3>
+                    <p class="text-xs text-gray-400 font-light">Deploying unified assets across all customer interaction channels.</p>
+                </div>
+                <!-- Step 5 -->
+                <div class="glass-card p-6 border border-brand-border flex flex-col justify-between relative group">
+                    <span class="text-xs font-mono text-brand-accent mb-4 block">05 / SCALE</span>
+                    <h3 class="text-lg font-serif font-bold text-white mb-2">Brand Presence</h3>
+                    <p class="text-xs text-gray-400 font-light">Sustaining market authority and long-term brand equity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio / Work Section -->
+    <section id="work" class="py-24 bg-brand-card border-t border-brand-border relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 reveal">
+                <div class="space-y-4">
+                    <span class="text-xs uppercase tracking-widest text-brand-accent font-semibold">Portfolio</span>
+                    <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white tracking-tight">Selected Branding Work</h2>
+                </div>
+                <p class="text-gray-400 font-light max-w-md mt-4 md:mt-0">
+                    A showcase of conceptual brand identity systems, custom typography, packaging solutions, and visual collateral.
+                </p>
+            </div>
+
+            <!-- Portfolio Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Item 1 -->
+                <div class="group relative bg-brand-dark border border-brand-border overflow-hidden reveal">
+                    <div class="relative aspect-[4/3] overflow-hidden">
+                        <img src="https://plus.unsplash.com/premium_photo-1726873328193-2fcde532707f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8TG9nbyUyMElkZW50aXR5fGVufDB8fDB8fHww" alt="Logo identity and brand mark presentation" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/20 to-transparent opacity-80"></div>
+                        <span class="absolute top-4 left-4 bg-brand-dark/80 backdrop-blur-md border border-brand-border px-3 py-1 text-[10px] font-mono text-brand-accent uppercase tracking-wider">Concept Project</span>
+                    </div>
+                    <div class="p-6 space-y-2">
+                        <span class="text-xs text-brand-accent uppercase tracking-widest font-semibold">Logo Identity</span>
+                        <h3 class="text-xl font-serif font-bold text-white">Aethelgard Luxury Monogram</h3>
+                        <p class="text-xs text-gray-400 font-light">Custom geometric wordmark and minimalist brand mark system designed for elite clientele.</p>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="group relative bg-brand-dark border border-brand-border overflow-hidden reveal">
+                    <div class="relative aspect-[4/3] overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=1000&q=80" alt="Branded packaging and product identity" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/20 to-transparent opacity-80"></div>
+                        <span class="absolute top-4 left-4 bg-brand-dark/80 backdrop-blur-md border border-brand-border px-3 py-1 text-[10px] font-mono text-brand-accent uppercase tracking-wider">Sample Brand Identity</span>
+                    </div>
+                    <div class="p-6 space-y-2">
+                        <span class="text-xs text-brand-accent uppercase tracking-widest font-semibold">Packaging Identity</span>
+                        <h3 class="text-xl font-serif font-bold text-white">Verve Botanical Skincare</h3>
+                        <p class="text-xs text-gray-400 font-light">Sustainable luxury packaging containers, foil-stamped labels, and holistic color palette.</p>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="group relative bg-brand-dark border border-brand-border overflow-hidden reveal">
+                    <div class="relative aspect-[4/3] overflow-hidden">
+                        <img src="https://plus.unsplash.com/premium_photo-1661326291059-eb076cc5bdd6?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8U3RhdGlvbmVyeSUyMCUyNiUyMFZpc3VhbCUyMFN5c3RlbXxlbnwwfHwwfHx8MA%3D%3D" alt="Business stationery and corporate collateral" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/20 to-transparent opacity-80"></div>
+                        <span class="absolute top-4 left-4 bg-brand-dark/80 backdrop-blur-md border border-brand-border px-3 py-1 text-[10px] font-mono text-brand-accent uppercase tracking-wider">Concept Project</span>
+                    </div>
+                    <div class="p-6 space-y-2">
+                        <span class="text-xs text-brand-accent uppercase tracking-widest font-semibold">Stationery & Visual System</span>
+                        <h3 class="text-xl font-serif font-bold text-white">Kravitz Architectural Firm</h3>
+                        <p class="text-xs text-gray-400 font-light">Heavyweight textured cotton business cards, letterheads, and minimalist corporate collateral.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="py-24 bg-brand-dark border-t border-brand-border relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="max-w-2xl mx-auto text-center space-y-4 mb-20 reveal">
+                <span class="text-xs uppercase tracking-widest text-brand-accent font-semibold">Workflow</span>
+                <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white tracking-tight">Our Branding Process</h2>
+                <p class="text-gray-400 font-light">A structured, collaborative path from initial discovery to complete market deployment.</p>
+            </div>
+
+            <!-- Timeline Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 01 -->
+                <div class="glass-card p-8 border border-brand-border relative group reveal">
+                    <div class="text-4xl font-serif font-bold text-brand-accent/30 mb-4">01</div>
+                    <h3 class="text-xl font-serif font-bold text-white mb-2">Discover</h3>
+                    <p class="text-sm text-gray-400 font-light">Deep-dive consultations to understand your business ethos, objectives, and vision.</p>
+                </div>
+                <!-- 02 -->
+                <div class="glass-card p-8 border border-brand-border relative group reveal">
+                    <div class="text-4xl font-serif font-bold text-brand-accent/30 mb-4">02</div>
+                    <h3 class="text-xl font-serif font-bold text-white mb-2">Research</h3>
+                    <p class="text-sm text-gray-400 font-light">Analyzing market segments, competitor landscapes, and target demographic behaviors.</p>
+                </div>
+                <!-- 03 -->
+                <div class="glass-card p-8 border border-brand-border relative group reveal">
+                    <div class="text-4xl font-serif font-bold text-brand-accent/30 mb-4">03</div>
+                    <h3 class="text-xl font-serif font-bold text-white mb-2">Strategy</h3>
+                    <p class="text-sm text-gray-400 font-light">Formulating brand positioning, messaging architecture, and creative direction.</p>
+                </div>
+                <!-- 04 -->
+                <div class="glass-card p-8 border border-brand-border relative group reveal">
+                    <div class="text-4xl font-serif font-bold text-brand-accent/30 mb-4">04</div>
+                    <h3 class="text-xl font-serif font-bold text-white mb-2">Design</h3>
+                    <p class="text-sm text-gray-400 font-light">Crafting logo concepts, typography systems, color palettes, and visual assets.</p>
+                </div>
+                <!-- 05 -->
+                <div class="glass-card p-8 border border-brand-border relative group reveal">
+                    <div class="text-4xl font-serif font-bold text-brand-accent/30 mb-4">05</div>
+                    <h3 class="text-xl font-serif font-bold text-white mb-2">Refine</h3>
+                    <p class="text-sm text-gray-400 font-light">Iterative feedback rounds to perfect every detail of your brand identity.</p>
+                </div>
+                <!-- 06 -->
+                <div class="glass-card p-8 border border-brand-border relative group reveal">
+                    <div class="text-4xl font-serif font-bold text-brand-accent/30 mb-4">06</div>
+                    <h3 class="text-xl font-serif font-bold text-white mb-2">Deliver</h3>
+                    <p class="text-sm text-gray-400 font-light">Packaging comprehensive brand guidelines and all source asset files.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Branding Matters -->
+    <section class="py-24 bg-brand-card border-t border-brand-border relative">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="space-y-6 reveal">
+                <span class="text-xs uppercase tracking-widest text-brand-accent font-semibold">Value Proposition</span>
+                <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white tracking-tight">Why Branding Matters</h2>
+                <p class="text-gray-300 font-light leading-relaxed">
+                    In today’s competitive marketplace, your brand is much more than a logo—it is the complete perception of your business. Professional branding creates instant recognition, builds long-term trust, and differentiates you from competitors.
+                </p>
+                <div class="space-y-4 pt-2">
+                    <div class="flex items-center space-x-3">
+                        <i data-lucide="check" class="w-5 h-5 text-brand-accent"></i>
+                        <span class="text-gray-200 text-sm font-medium">Strong visual recognition across all media</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <i data-lucide="check" class="w-5 h-5 text-brand-accent"></i>
+                        <span class="text-gray-200 text-sm font-medium">Consistent and professional communication</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <i data-lucide="check" class="w-5 h-5 text-brand-accent"></i>
+                        <span class="text-gray-200 text-sm font-medium">Clear brand personality that connects with audiences</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="glass-card p-10 border border-brand-border space-y-6 reveal">
+                <span class="text-xs uppercase tracking-widest text-brand-accent font-semibold">Creative Standard</span>
+                <blockquote class="text-xl font-serif italic text-white leading-relaxed">
+                    “Design is the silent ambassador of your brand. When executed with precision and purpose, it commands respect and inspires loyalty.”
+                </blockquote>
+                <div class="pt-4 border-t border-brand-border flex items-center justify-between text-xs text-brand-muted">
+                    <span>Branding Agency Studio</span>
+                    <span>Professional Standards</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24 bg-brand-dark border-t border-brand-border text-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-brand-accent/5 pointer-events-none"></div>
+        <div class="max-w-4xl mx-auto px-6 relative z-10 space-y-8 reveal">
+            <span class="text-xs uppercase tracking-widest text-brand-accent font-semibold">Take Action</span>
+            <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white tracking-tight">Ready to Build a Stronger Brand?</h2>
+            <p class="text-lg text-gray-400 font-light max-w-2xl mx-auto">
+                Let’s turn your ideas into a distinctive and professional brand identity.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 pt-4">
+                <a href="https://wa.me/923132487829" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-xs font-semibold uppercase tracking-widest text-brand-dark bg-brand-accent hover:bg-brand-accentHover transition-all duration-300 space-x-2">
+                    <i data-lucide="message-circle" class="w-4 h-4"></i>
+                    <span>WhatsApp Us</span>
+                </a>
+                <a href="tel:03132487829" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-xs font-semibold uppercase tracking-widest text-white border border-brand-border hover:border-brand-accent transition-all duration-300 space-x-2">
+                    <i data-lucide="phone" class="w-4 h-4 text-brand-accent"></i>
+                    <span>Call Now</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section — ABSOLUTELY ZERO IMAGES -->
+    <section id="contact" class="py-24 bg-brand-card border-t border-brand-border relative">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16">
+            <!-- Contact Info -->
+            <div class="lg:col-span-5 space-y-8 reveal">
+                <div>
+                    <span class="text-xs uppercase tracking-widest text-brand-accent font-semibold">Get in Touch</span>
+                    <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white tracking-tight mt-2">Let’s Discuss Your Project</h2>
+                    <p class="text-gray-400 font-light mt-4">
+                        Connect with our creative team directly or fill out the project inquiry form.
+                    </p>
+                </div>
+
+                <div class="space-y-6 pt-4 border-t border-brand-border">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-10 h-10 bg-brand-dark border border-brand-border flex items-center justify-center text-brand-accent shrink-0">
+                            <i data-lucide="building-2" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h5 class="text-xs uppercase tracking-wider text-brand-muted">Agency Name</h5>
+                            <p class="text-white font-serif text-lg">Branding Agency</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="w-10 h-10 bg-brand-dark border border-brand-border flex items-center justify-center text-brand-accent shrink-0">
+                            <i data-lucide="phone" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h5 class="text-xs uppercase tracking-wider text-brand-muted">Phone</h5>
+                            <a href="tel:03132487829" class="text-white hover:text-brand-accent transition-colors font-mono">03132487829</a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="w-10 h-10 bg-brand-dark border border-brand-border flex items-center justify-center text-brand-accent shrink-0">
+                            <i data-lucide="message-circle" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h5 class="text-xs uppercase tracking-wider text-brand-muted">WhatsApp</h5>
+                            <a href="https://wa.me/923132487829" target="_blank" rel="noopener noreferrer" class="text-white hover:text-brand-accent transition-colors font-mono">03132487829</a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="w-10 h-10 bg-brand-dark border border-brand-border flex items-center justify-center text-brand-accent shrink-0">
+                            <i data-lucide="mail" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h5 class="text-xs uppercase tracking-wider text-brand-muted">Email</h5>
+                            <a href="mailto:brandingagency.pk@gmail.com" class="text-white hover:text-brand-accent transition-colors font-mono">brandingagency.pk@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="lg:col-span-7 reveal">
+                <div class="glass-card p-8 md:p-10 border border-brand-border relative">
+                    <form id="inquiry-form" class="space-y-6" novalidate>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label for="fullName" class="block text-xs uppercase tracking-wider text-gray-300 mb-2">Full Name *</label>
+                                <input type="text" id="fullName" name="fullName" required class="w-full bg-brand-dark border border-brand-border px-4 py-3 text-white text-sm focus:outline-none focus:border-brand-accent transition-colors rounded-none" placeholder="John Doe">
+                                <span class="error-msg text-red-400 text-xs mt-1 hidden">Please enter your full name.</span>
+                            </div>
+                            <div>
+                                <label for="phoneNumber" class="block text-xs uppercase tracking-wider text-gray-300 mb-2">Phone Number *</label>
+                                <input type="tel" id="phoneNumber" name="phoneNumber" required class="w-full bg-brand-dark border border-brand-border px-4 py-3 text-white text-sm focus:outline-none focus:border-brand-accent transition-colors rounded-none" placeholder="03132487829">
+                                <span class="error-msg text-red-400 text-xs mt-1 hidden">Please enter a valid phone number.</span>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label for="email" class="block text-xs uppercase tracking-wider text-gray-300 mb-2">Email *</label>
+                                <input type="email" id="email" name="email" required class="w-full bg-brand-dark border border-brand-border px-4 py-3 text-white text-sm focus:outline-none focus:border-brand-accent transition-colors rounded-none" placeholder="name@business.com">
+                                <span class="error-msg text-red-400 text-xs mt-1 hidden">Please enter a valid email address.</span>
+                            </div>
+                            <div>
+                                <label for="businessName" class="block text-xs uppercase tracking-wider text-gray-300 mb-2">Business Name *</label>
+                                <input type="text" id="businessName" name="businessName" required class="w-full bg-brand-dark border border-brand-border px-4 py-3 text-white text-sm focus:outline-none focus:border-brand-accent transition-colors rounded-none" placeholder="Your Brand Name">
+                                <span class="error-msg text-red-400 text-xs mt-1 hidden">Please enter your business name.</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="serviceRequired" class="block text-xs uppercase tracking-wider text-gray-300 mb-2">Service Required *</label>
+                            <select id="serviceRequired" name="serviceRequired" required class="w-full bg-brand-dark border border-brand-border px-4 py-3 text-white text-sm focus:outline-none focus:border-brand-accent transition-colors rounded-none">
+                                <option value="" disabled selected>Select a service</option>
+                                <option value="Logo Design">Logo Design</option>
+                                <option value="Brand Identity">Brand Identity</option>
+                                <option value="Brand Strategy">Brand Strategy</option>
+                                <option value="Visual Identity">Visual Identity</option>
+                                <option value="Packaging Design">Packaging Design</option>
+                                <option value="Stationery">Stationery</option>
+                                <option value="Marketing Materials">Marketing Materials</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <span class="error-msg text-red-400 text-xs mt-1 hidden">Please select a service.</span>
+                        </div>
+
+                        <div>
+                            <label for="projectDetails" class="block text-xs uppercase tracking-wider text-gray-300 mb-2">Project Details *</label>
+                            <textarea id="projectDetails" name="projectDetails" rows="4" required class="w-full bg-brand-dark border border-brand-border px-4 py-3 text-white text-sm focus:outline-none focus:border-brand-accent transition-colors rounded-none resize-none" placeholder="Describe your project goals and vision..."></textarea>
+                            <span class="error-msg text-red-400 text-xs mt-1 hidden">Please provide project details.</span>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 text-xs font-semibold uppercase tracking-widest text-brand-dark bg-brand-accent hover:bg-brand-accentHover transition-all duration-300 flex items-center justify-center space-x-2">
+                            <span>Submit Inquiry</span>
+                            <i data-lucide="send" class="w-4 h-4"></i>
+                        </button>
+                    </form>
+
+                    <!-- Success State (Hidden by default) -->
+                    <div id="form-success" class="hidden text-center py-12 space-y-6">
+                        <div class="w-16 h-16 bg-brand-accent/10 border border-brand-accent text-brand-accent mx-auto flex items-center justify-center">
+                            <i data-lucide="check" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-2xl font-serif font-bold text-white">Inquiry Received Successfully</h3>
+                        <p class="text-gray-400 text-sm max-w-md mx-auto">
+                            Thank you for reaching out to Branding Agency. Our team will review your project details and contact you shortly.
+                        </p>
+                        <div class="flex flex-col sm:flex-row items-center justify-center space-y-3 sm:space-y-0 sm:space-x-4 pt-4">
+                            <a href="https://wa.me/923132487829" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-6 py-3 text-xs font-semibold uppercase tracking-widest text-brand-dark bg-brand-accent hover:bg-brand-accentHover transition-all duration-300 inline-flex items-center justify-center space-x-2">
+                                <i data-lucide="message-circle" class="w-4 h-4"></i>
+                                <span>Chat on WhatsApp</span>
+                            </a>
+                            <a href="mailto:brandingagency.pk@gmail.com" class="w-full sm:w-auto px-6 py-3 text-xs font-semibold uppercase tracking-widest text-white border border-brand-border hover:border-brand-accent transition-all duration-300 inline-flex items-center justify-center space-x-2">
+                                <i data-lucide="mail" class="w-4 h-4 text-brand-accent"></i>
+                                <span>Send Email</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark border-t border-brand-border py-16 text-gray-400 text-sm">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
+            <!-- Brand Column -->
+            <div class="lg:col-span-2 space-y-4">
+                <a href="#home" class="text-xl font-serif font-bold text-white tracking-tight">
+                    Branding Agency
+                </a>
+                <p class="text-gray-400 text-xs font-light leading-relaxed max-w-sm">
+                    Professional brand identity and creative strategy studio dedicated to building distinctive market presence for ambitious businesses.
+                </p>
+                <div class="pt-2 space-y-1 text-xs">
+                    <p><span class="text-brand-muted">Phone:</span> <a href="tel:03132487829" class="text-white hover:text-brand-accent font-mono">03132487829</a></p>
+                    <p><span class="text-brand-muted">WhatsApp:</span> <a href="https://wa.me/923132487829" target="_blank" rel="noopener noreferrer" class="text-white hover:text-brand-accent font-mono">03132487829</a></p>
+                    <p><span class="text-brand-muted">Email:</span> <a href="mailto:brandingagency.pk@gmail.com" class="text-white hover:text-brand-accent font-mono">brandingagency.pk@gmail.com</a></p>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="space-y-4">
+                <h4 class="text-xs uppercase tracking-widest text-white font-semibold">Quick Links</h4>
+                <ul class="space-y-2.5 text-xs">
+                    <li><a href="#home" class="hover:text-brand-accent transition-colors">Home</a></li>
+                    <li><a href="#services" class="hover:text-brand-accent transition-colors">Services</a></li>
+                    <li><a href="#identity" class="hover:text-brand-accent transition-colors">About</a></li>
+                    <li><a href="#process" class="hover:text-brand-accent transition-colors">Process</a></li>
+                    <li><a href="#work" class="hover:text-brand-accent transition-colors">Work</a></li>
+                    <li><a href="#contact" class="hover:text-brand-accent transition-colors">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Services -->
+            <div class="space-y-4">
+                <h4 class="text-xs uppercase tracking-widest text-white font-semibold">Services</h4>
+                <ul class="space-y-2.5 text-xs">
+                    <li><a href="#services" class="hover:text-brand-accent transition-colors">Logo Design</a></li>
+                    <li><a href="#services" class="hover:text-brand-accent transition-colors">Brand Identity</a></li>
+                    <li><a href="#services" class="hover:text-brand-accent transition-colors">Brand Strategy</a></li>
+                    <li><a href="#services" class="hover:text-brand-accent transition-colors">Visual Identity</a></li>
+                    <li><a href="#services" class="hover:text-brand-accent transition-colors">Packaging Design</a></li>
+                    <li><a href="#services" class="hover:text-brand-accent transition-colors">Stationery</a></li>
+                    <li><a href="#services" class="hover:text-brand-accent transition-colors">Marketing Materials</a></li>
+                    <li><a href="#services" class="hover:text-brand-accent transition-colors">Brand Guidelines</a></li>
+                </ul>
+            </div>
+
+            <!-- Connect -->
+            <div class="space-y-4">
+                <h4 class="text-xs uppercase tracking-widest text-white font-semibold">Connect</h4>
+                <ul class="space-y-2.5 text-xs">
+                    <li><a href="https://wa.me/923132487829" target="_blank" rel="noopener noreferrer" class="hover:text-brand-accent transition-colors flex items-center space-x-2"><i data-lucide="message-circle" class="w-3.5 h-3.5 text-brand-accent"></i><span>WhatsApp Us</span></a></li>
+                    <li><a href="tel:03132487829" class="hover:text-brand-accent transition-colors flex items-center space-x-2"><i data-lucide="phone" class="w-3.5 h-3.5 text-brand-accent"></i><span>Call 03132487829</span></a></li>
+                    <li><a href="mailto:brandingagency.pk@gmail.com" class="hover:text-brand-accent transition-colors flex items-center space-x-2"><i data-lucide="mail" class="w-3.5 h-3.5 text-brand-accent"></i><span>Send Email</span></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 pt-8 border-t border-brand-border flex flex-col sm:flex-row items-center justify-between text-xs text-brand-muted">
+            <p id="copyright-text"></p>
+            <p class="mt-4 sm:mt-0">Professional Creative & Branding Studio</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" aria-label="Back to top" class="fixed bottom-6 right-6 z-40 w-10 h-10 bg-brand-card border border-brand-border text-brand-accent flex items-center justify-center opacity-0 pointer-events-none hover:border-brand-accent transition-all duration-300">
+        <i data-lucide="arrow-up" class="w-4 h-4"></i>
+    </button>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Dynamic Copyright Year
+        document.getElementById('copyright-text').textContent = `© ${new Date().getFullYear()} Branding Agency. All Rights Reserved.`;
+
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 40) {
+                navbar.classList.add('shadow-lg');
+            } else {
+                navbar.classList.remove('shadow-lg');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        let isMenuOpen = false;
+
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.remove('-translate-y-full', 'opacity-0', 'pointer-events-none');
+                mobileMenu.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
+            } else {
+                mobileMenu.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
+                mobileMenu.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
+            }
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+
+        // Scroll Reveal Animation (Intersection Observer)
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // Back to Top Button
+        const backToTopBtn = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+                backToTopBtn.classList.add('opacity-100', 'pointer-events-auto');
+            } else {
+                backToTopBtn.classList.add('opacity-0', 'pointer-events-none');
+                backToTopBtn.classList.remove('opacity-100', 'opacity-100', 'pointer-events-auto');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Contact Form Frontend Validation & Submission Simulation
+        const inquiryForm = document.getElementById('inquiry-form');
+        const formSuccess = document.getElementById('form-success');
+
+        inquiryForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            let isValid = true;
+
+            const fields = [
+                { id: 'fullName', validate: val => val.trim().length > 0 },
+                { id: 'phoneNumber', validate: val => val.trim().length >= 6 },
+                { id: 'email', validate: val => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val) },
+                { id: 'businessName', validate: val => val.trim().length > 0 },
+                { id: 'serviceRequired', validate: val => val !== '' },
+                { id: 'projectDetails', validate: val => val.trim().length > 5 }
+            ];
+
+            fields.forEach(field => {
+                const input = document.getElementById(field.id);
+                const errorSpan = input.nextElementSibling;
+                if (!field.validate(input.value)) {
+                    input.classList.add('border-red-400');
+                    if (errorSpan && errorSpan.classList.contains('error-msg')) {
+                        errorSpan.classList.remove('hidden');
+                    }
+                    isValid = false;
+                } else {
+                    input.classList.remove('border-red-400');
+                    if (errorSpan && errorSpan.classList.contains('error-msg')) {
+                        errorSpan.classList.add('hidden');
+                    }
+                }
+            });
+
+            if (isValid) {
+                inquiryForm.classList.add('hidden');
+                formSuccess.classList.remove('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
